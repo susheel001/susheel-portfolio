@@ -17,6 +17,16 @@
     --muted: #7a7970;
     --card: #ffffff;
     --tag-bg: #f1f0eb;
+    --purple: #7c3aed;
+    --purple-bg: #f3eeff;
+    --orange: #ea580c;
+    --orange-bg: #fff4ee;
+    --blue: #0369a1;
+    --blue-bg: #e0f2fe;
+    --pink: #be185d;
+    --pink-bg: #fdf2f8;
+    --teal: #0f766e;
+    --teal-bg: #f0fdfb;
   }
   html { scroll-behavior: smooth; }
   body {
@@ -49,8 +59,11 @@
   .logo span { color: var(--accent-green); }
   nav .links { display: flex; gap: 28px; align-items: center; }
   nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
-  nav a:hover { color: var(--text); }
-  .hire-btn { background: #1a1a1a !important; color: #fff !important; padding: 8px 18px !important; border-radius: 4px !important; font-weight: 600 !important; }
+  nav .links a:nth-child(1) { color: var(--purple); }
+  nav .links a:nth-child(2) { color: var(--orange); }
+  nav .links a:nth-child(3) { color: var(--blue); }
+  nav a:hover { opacity: 0.75; }
+  .hire-btn { background: var(--purple) !important; color: #fff !important; padding: 8px 18px !important; border-radius: 4px !important; font-weight: 600 !important; }
   .hire-btn:hover { opacity: 0.8 !important; color: #fff !important; }
   .hero { padding: 160px 0 100px; }
   .hero-tag {
@@ -66,7 +79,7 @@
   h1 em { font-style: normal; color: var(--accent-green); }
   .hero-sub { font-size: 18px; color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 40px; animation: fadeUp 0.6s 0.2s ease both; font-weight: 300; }
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
-  .btn-primary { background: #1a1a1a; color: #fff; border: none; padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
+  .btn-primary { background: var(--orange); color: #fff; border: none; padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
   .btn-primary:hover { opacity: 0.82; transform: translateY(-1px); }
   .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, transform 0.2s; }
   .btn-secondary:hover { border-color: var(--muted); transform: translateY(-1px); }
@@ -79,7 +92,7 @@
   h2 { font-family: 'Syne', sans-serif; font-size: clamp(28px,4vw,40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 40px; line-height: 1.1; }
   .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .service-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 28px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
-  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent-green); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--card-color, var(--accent-green)); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
   .service-card:hover { border-color: #c8c6bf; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
   .service-card:hover::before { transform: scaleX(1); }
   .service-icon { width: 40px; height: 40px; background: var(--accent-green-bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 18px; }
@@ -162,29 +175,29 @@
     <div class="section-label">// what I do</div>
     <h2>Services</h2>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">⚡</div>
+      <div class="service-card" style="--card-color:#7c3aed;--card-bg:#f3eeff">
+        <div class="service-icon" style="background:#f3eeff">⚡</div>
         <div class="service-title">Full Stack Development</div>
         <div class="service-desc">End-to-end web applications — from responsive frontend to robust backend APIs. Fast, clean, and scalable.</div>
-        <div class="service-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">REST API</span><span class="tag">JavaScript</span></div>
+        <div class="service-tags"><span class="tag" style="background:#f3eeff;color:#7c3aed;border-color:#d4bbff">React</span><span class="tag" style="background:#f3eeff;color:#7c3aed;border-color:#d4bbff">Node.js</span><span class="tag" style="background:#f3eeff;color:#7c3aed;border-color:#d4bbff">REST API</span><span class="tag" style="background:#f3eeff;color:#7c3aed;border-color:#d4bbff">JavaScript</span></div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🐛</div>
+      <div class="service-card" style="--card-color:#ea580c;--card-bg:#fff4ee">
+        <div class="service-icon" style="background:#fff4ee">🐛</div>
         <div class="service-title">Bug Fixing & Code Review</div>
         <div class="service-desc">Got a broken feature or messy codebase? I'll diagnose, fix, and explain what went wrong — fast.</div>
-        <div class="service-tags"><span class="tag">Debugging</span><span class="tag">Optimization</span><span class="tag">Refactoring</span></div>
+        <div class="service-tags"><span class="tag" style="background:#fff4ee;color:#ea580c;border-color:#fdb992">Debugging</span><span class="tag" style="background:#fff4ee;color:#ea580c;border-color:#fdb992">Optimization</span><span class="tag" style="background:#fff4ee;color:#ea580c;border-color:#fdb992">Refactoring</span></div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">✍️</div>
+      <div class="service-card" style="--card-color:#0369a1;--card-bg:#e0f2fe">
+        <div class="service-icon" style="background:#e0f2fe">✍️</div>
         <div class="service-title">SEO Blog Writing</div>
         <div class="service-desc">Well-researched, engaging blog posts optimized for search engines. Ready to publish, built to rank.</div>
-        <div class="service-tags"><span class="tag">SEO</span><span class="tag">Long-form</span><span class="tag">Research</span></div>
+        <div class="service-tags"><span class="tag" style="background:#e0f2fe;color:#0369a1;border-color:#93d3f8">SEO</span><span class="tag" style="background:#e0f2fe;color:#0369a1;border-color:#93d3f8">Long-form</span><span class="tag" style="background:#e0f2fe;color:#0369a1;border-color:#93d3f8">Research</span></div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🖥️</div>
+      <div class="service-card" style="--card-color:#be185d;--card-bg:#fdf2f8">
+        <div class="service-icon" style="background:#fdf2f8">🖥️</div>
         <div class="service-title">Website Copy</div>
         <div class="service-desc">Landing pages, product descriptions, and website content that converts visitors into customers.</div>
-        <div class="service-tags"><span class="tag">Copywriting</span><span class="tag">Conversion</span><span class="tag">Brand voice</span></div>
+        <div class="service-tags"><span class="tag" style="background:#fdf2f8;color:#be185d;border-color:#f0a8cc">Copywriting</span><span class="tag" style="background:#fdf2f8;color:#be185d;border-color:#f0a8cc">Conversion</span><span class="tag" style="background:#fdf2f8;color:#be185d;border-color:#f0a8cc">Brand voice</span></div>
       </div>
     </div>
   </section>
@@ -199,8 +212,8 @@
         <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">JavaScript</span><span class="tag">REST API</span><span class="tag">Vercel</span>
       </div>
       <div class="project-links">
-        <a href="https://fitand-rise.vercel.app/" target="_blank" class="project-link">↗ Live demo</a>
-        <a href="https://github.com/susheel001/FitandRise" target="_blank" class="project-link">↗ GitHub</a>
+        <a href="https://fitand-rise.vercel.app/" target="_blank" class="project-link" style="color:#0369a1;background:#e0f2fe;padding:6px 14px;border-radius:20px;font-weight:500">↗ Live demo</a>
+        <a href="https://github.com/susheel001/FitandRise" target="_blank" class="project-link" style="color:#7c3aed;background:#f3eeff;padding:6px 14px;border-radius:20px;font-weight:500">↗ GitHub</a>
       </div>
     </div>
   </section>
@@ -257,11 +270,11 @@
       <h2>Ready to start?</h2>
       <p class="contact-sub">I'm available for projects right now. Message me and I'll reply within a few hours.</p>
       <div class="contact-options">
-        <a href="https://www.fiverr.com" target="_blank" class="contact-link">
+        <a href="https://www.fiverr.com" target="_blank" class="contact-link" style="border-color:#1dbf73;color:#1dbf73">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-1.742c-1.269 0-2.01-.814-2.01-2.176V5.127h2.012V3.19h-2.012V.278h-2.207V3.19h-1.168v1.937h1.168v4.58c0 2.394 1.455 3.853 4.215 3.853h1.744v-1.677zM13.123 3.19h-2.207v12.598h2.207V3.19zm-1.104-1.542a1.31 1.31 0 1 0 .002-2.62 1.31 1.31 0 0 0-.002 2.62zm-3.603 7.044H6.05V6.52c0-.965.417-1.412 1.347-1.412.325 0 .62.048.946.12V3.286a6.178 6.178 0 0 0-1.17-.12c-2.05 0-3.33 1.262-3.33 3.35v2.176H2.677v1.937h2.166v5.16H7.05v-5.16h2.366V8.692z"/></svg>
           Fiverr
         </a>
-        <a href="https://github.com/susheel001" target="_blank" class="contact-link">
+        <a href="https://github.com/susheel001" target="_blank" class="contact-link" style="border-color:#7c3aed;color:#7c3aed">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
           GitHub
         </a>
