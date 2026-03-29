@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Susheel Kumar — Developer & Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f9f8f5;
+    --surface: #ffffff;
+    --border: #e4e2db;
+    --accent-green: #1a7a4a;
+    --accent-green-bg: #edf7f1;
+    --text: #1a1a1a;
+    --muted: #7a7970;
+    --card: #ffffff;
+    --tag-bg: #f1f0eb;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 0;
+    background: rgba(249,248,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .inner { max-width: 900px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--accent-green); }
+  nav .links { display: flex; gap: 28px; align-items: center; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  nav a:hover { color: var(--text); }
+  .hire-btn { background: #1a1a1a !important; color: #fff !important; padding: 8px 18px !important; border-radius: 4px !important; font-weight: 600 !important; }
+  .hire-btn:hover { opacity: 0.8 !important; color: #fff !important; }
+  .hero { padding: 160px 0 100px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-green-bg); border: 1px solid #b6dfc8;
+    border-radius: 100px; padding: 6px 14px;
+    font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent-green);
+    margin-bottom: 32px; animation: fadeUp 0.6s ease both;
+  }
+  .dot { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; animation: pulse 2s ease infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+  h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(42px,7vw,76px); line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 24px; animation: fadeUp 0.6s 0.1s ease both; }
+  h1 em { font-style: normal; color: var(--accent-green); }
+  .hero-sub { font-size: 18px; color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 40px; animation: fadeUp 0.6s 0.2s ease both; font-weight: 300; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn-primary { background: #1a1a1a; color: #fff; border: none; padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
+  .btn-primary:hover { opacity: 0.82; transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 14px 28px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, transform 0.2s; }
+  .btn-secondary:hover { border-color: var(--muted); transform: translateY(-1px); }
+  .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; margin: 80px 0; overflow: hidden; animation: fadeUp 0.6s 0.4s ease both; }
+  .stat { background: var(--surface); padding: 28px 24px; text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--accent-green); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 13px; color: var(--muted); }
+  section { padding: 80px 0; border-top: 1px solid var(--border); }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent-green); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+  h2 { font-family: 'Syne', sans-serif; font-size: clamp(28px,4vw,40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 40px; line-height: 1.1; }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .service-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 28px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent-green); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+  .service-card:hover { border-color: #c8c6bf; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { width: 40px; height: 40px; background: var(--accent-green-bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 18px; }
+  .service-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .service-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { background: var(--tag-bg); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 28px 24px; transition: transform 0.2s, box-shadow 0.2s; }
+  .price-card.featured { border-color: var(--accent-green); background: var(--accent-green-bg); position: relative; }
+  .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-green); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; white-space: nowrap; }
+  .price-card:hover { transform: translateY(-3px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .price-tier { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+  .price-amount { font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 4px; }
+  .price-amount span { font-size: 16px; font-weight: 400; color: var(--muted); }
+  .price-desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .price-features li { font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; }
+  .price-features li::before { content: '✓'; color: var(--accent-green); font-weight: 700; flex-shrink: 0; }
+  .price-btn { width: 100%; padding: 12px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; display: block; transition: opacity 0.2s; border: 1px solid var(--border); background: transparent; color: var(--text); }
+  .price-card.featured .price-btn { background: var(--accent-green); color: #fff; border-color: var(--accent-green); }
+  .price-btn:hover { opacity: 0.75; }
+  .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 32px; transition: box-shadow 0.2s; }
+  .project-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+  .project-name { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+  .project-links { display: flex; gap: 12px; margin-top: 16px; }
+  .project-link { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent-green); text-decoration: none; transition: opacity 0.2s; }
+  .project-link:hover { opacity: 0.7; }
+  .contact-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 48px; text-align: center; }
+  .contact-box h2 { margin-bottom: 12px; }
+  .contact-sub { color: var(--muted); font-size: 16px; margin-bottom: 32px; font-weight: 300; }
+  .contact-options { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 8px; padding: 12px 20px; border: 1px solid var(--border); border-radius: 4px; color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; transition: border-color 0.2s, transform 0.2s; background: var(--surface); }
+  .contact-link:hover { border-color: var(--accent-green); transform: translateY(-1px); }
+  footer { border-top: 1px solid var(--border); padding: 32px 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  @media (max-width: 640px) {
+    .services-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr; }
+    nav .links a:not(.hire-btn) { display: none; }
+    .contact-box { padding: 32px 24px; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="#" class="logo">SK<span>.</span></a>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="hire-btn">Hire me</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <section class="hero" style="border:none">
+    <div class="hero-tag"><div class="dot"></div> Available for new projects</div>
+    <h1>Full Stack Dev<br/>&amp; <em>Content Writer</em></h1>
+    <p class="hero-sub">I build fast, modern web apps and write content that brings traffic. One person. Two skills. No middlemen.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Let's work together</a>
+      <a href="#work" class="btn-secondary">See my work</a>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">1+</div><div class="stat-label">Year coding</div></div>
+    <div class="stat"><div class="stat-num">JS</div><div class="stat-label">Primary stack</div></div>
+    <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Response time</div></div>
+  </div>
+
+  <section id="services">
+    <div class="section-label">// what I do</div>
+    <h2>Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <div class="service-title">Full Stack Development</div>
+        <div class="service-desc">End-to-end web applications — from responsive frontend to robust backend APIs. Fast, clean, and scalable.</div>
+        <div class="service-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">REST API</span><span class="tag">JavaScript</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🐛</div>
+        <div class="service-title">Bug Fixing & Code Review</div>
+        <div class="service-desc">Got a broken feature or messy codebase? I'll diagnose, fix, and explain what went wrong — fast.</div>
+        <div class="service-tags"><span class="tag">Debugging</span><span class="tag">Optimization</span><span class="tag">Refactoring</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✍️</div>
+        <div class="service-title">SEO Blog Writing</div>
+        <div class="service-desc">Well-researched, engaging blog posts optimized for search engines. Ready to publish, built to rank.</div>
+        <div class="service-tags"><span class="tag">SEO</span><span class="tag">Long-form</span><span class="tag">Research</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🖥️</div>
+        <div class="service-title">Website Copy</div>
+        <div class="service-desc">Landing pages, product descriptions, and website content that converts visitors into customers.</div>
+        <div class="service-tags"><span class="tag">Copywriting</span><span class="tag">Conversion</span><span class="tag">Brand voice</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-label">// portfolio</div>
+    <h2>Featured project</h2>
+    <div class="project-card">
+      <div class="project-name">FitandRise</div>
+      <div class="project-desc">A full stack fitness tracker web app built with JavaScript. Features a React frontend and a Node.js backend with REST API. Users can track workouts, monitor progress, and stay consistent with their fitness goals.</div>
+      <div class="service-tags">
+        <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">JavaScript</span><span class="tag">REST API</span><span class="tag">Vercel</span>
+      </div>
+      <div class="project-links">
+        <a href="https://fitand-rise.vercel.app/" target="_blank" class="project-link">↗ Live demo</a>
+        <a href="https://github.com/susheel001/FitandRise" target="_blank" class="project-link">↗ GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="section-label">// transparent pricing</div>
+    <h2>Simple pricing</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$11 <span>/ piece</span></div>
+        <div class="price-desc">Blog post or bug fix</div>
+        <ul class="price-features">
+          <li>500-word SEO article</li>
+          <li>OR 1 bug fixed</li>
+          <li>2-day delivery</li>
+          <li>1 revision</li>
+        </ul>
+        <a href="#contact" class="price-btn">Get started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="featured-badge">Most popular</div>
+        <div class="price-tier">Standard</div>
+        <div class="price-amount">$30 <span>/ project</span></div>
+        <div class="price-desc">Full article or feature</div>
+        <ul class="price-features">
+          <li>1000-word article</li>
+          <li>OR new web feature</li>
+          <li>2-day delivery</li>
+          <li>2 revisions</li>
+          <li>Source code included</li>
+        </ul>
+        <a href="#contact" class="price-btn">Get started</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Premium</div>
+        <div class="price-amount">$50 <span>/ project</span></div>
+        <div class="price-desc">Full site or content pack</div>
+        <ul class="price-features">
+          <li>Landing page build</li>
+          <li>OR 3 blog posts</li>
+          <li>3-day delivery</li>
+          <li>Unlimited revisions</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#contact" class="price-btn">Get started</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:1px solid var(--border)">
+    <div class="contact-box">
+      <div class="section-label" style="margin-bottom:16px">// let's build something</div>
+      <h2>Ready to start?</h2>
+      <p class="contact-sub">I'm available for projects right now. Message me and I'll reply within a few hours.</p>
+      <div class="contact-options">
+        <a href="https://www.fiverr.com" target="_blank" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-.996-3.705h-1.742c-1.269 0-2.01-.814-2.01-2.176V5.127h2.012V3.19h-2.012V.278h-2.207V3.19h-1.168v1.937h1.168v4.58c0 2.394 1.455 3.853 4.215 3.853h1.744v-1.677zM13.123 3.19h-2.207v12.598h2.207V3.19zm-1.104-1.542a1.31 1.31 0 1 0 .002-2.62 1.31 1.31 0 0 0-.002 2.62zm-3.603 7.044H6.05V6.52c0-.965.417-1.412 1.347-1.412.325 0 .62.048.946.12V3.286a6.178 6.178 0 0 0-1.17-.12c-2.05 0-3.33 1.262-3.33 3.35v2.176H2.677v1.937h2.166v5.16H7.05v-5.16h2.366V8.692z"/></svg>
+          Fiverr
+        </a>
+        <a href="https://github.com/susheel001" target="_blank" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Susheel Kumar</span>
+    <span>Built to get clients.</span>
+  </footer>
+
+</div>
+</body>
+</html>
